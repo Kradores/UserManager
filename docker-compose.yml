@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+
+  usermanager.api:
+    container_name: 'usermanagerapi'
+    image: 'usermanagerapi'
+    build:
+      context: .
+      dockerfile: UserManager.API/Dockerfile
+    ports:
+     - "5000:5000"
+    depends_on:
+     - "postgres"
+    networks:
+      - usermanager-network
+
+  postgres:
+    container_name: 'postgres'
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      - usermanager-network
+
+networks:
+  usermanager-network:
+    driver: bridge
