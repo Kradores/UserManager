@@ -14,6 +14,6 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
         builder.Property(t => t.Name).IsRequired();
         builder.Property(t => t.Email).IsRequired();
 
-        builder.HasOne(t => t.Credit).WithOne().HasForeignKey<Credit>(t => t.UserId);
+        builder.HasOne(t => t.Credit).WithOne().HasForeignKey<Credit>(t => t.UserId).IsRequired();
     }
 }
