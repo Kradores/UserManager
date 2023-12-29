@@ -10,4 +10,13 @@ internal static class DbExtentions
         services.AddDbContext<UserDbContext>(o => o.UseNpgsql(configuration["ConnectionStrings:UserManager"]));
         return services;
     }
+
+    public static IApplicationBuilder ApplyMigrations(this IApplicationBuilder builder)
+    {
+        var scope = builder.ApplicationServices.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<UserDbContext>();
+        db.Database.Migrate();
+
+        return builder;
+    }
 }
