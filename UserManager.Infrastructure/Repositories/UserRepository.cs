@@ -13,6 +13,11 @@ public class UserRepository : IUserRepository
         Context = context;
     }
 
+    public int CountUsers()
+    {
+        return Context.Users.Count();
+    }
+
     public User CreateUser(User user)
     {
         Context.Users.Add(user);
@@ -32,7 +37,7 @@ public class UserRepository : IUserRepository
 
     public IEnumerable<User> GetUsers(int skip, int take)
     {
-        return Context.Users.Skip(skip).Take(take).Include(user => user.Credit).ToList();
+        return Context.Users.Skip(skip).Take(take).Include(user => user.Credit);
     }
 
     public User UpdateUser(User user)

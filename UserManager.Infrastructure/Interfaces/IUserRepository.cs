@@ -9,4 +9,5 @@ public interface IUserRepository
     public User CreateUser(User user);
     public User UpdateUser(User user);
     public void DeleteUser(Guid id);
+    public int CountUsers();
 }
