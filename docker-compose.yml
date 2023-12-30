@@ -2,6 +2,17 @@ version: '3.4'
 
 services:
 
+  usermanager.ui:
+    container_name: 'usermanagerui'
+    image: 'usermanagerui'
+    build:
+      context: .
+      dockerfile: usermanager.ui/Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - usermanager-network
+
   usermanager.api:
     container_name: 'usermanagerapi'
     image: 'usermanagerapi'
@@ -9,7 +20,7 @@ services:
       context: .
       dockerfile: UserManager.API/Dockerfile
     ports:
-     - "5000:5000"
+     - "5000:8080"
     depends_on:
      - "postgres"
     networks:

@@ -6,7 +6,7 @@
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>25bbe26e-2e05-442e-aac4-42f30fce60b8</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:3000/</DockerServiceUrl>
     <DockerServiceName>usermanager.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
