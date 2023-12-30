@@ -6,10 +6,18 @@ var builder = WebApplication.CreateSlimBuilder(args);
 builder.Services
     .AddDbService(builder.Configuration)
     .AddRepositories()
-    .AddCarter();
+    .AddCarter()
+    .AddCors(options =>
+    {
+        options.AddDefaultPolicy(policy =>
+        {
+            policy.WithOrigins("http://localhost:3000");
+        });
+    });
 
 var app = builder.Build();
 
+app.UseCors();
 app.MapCarter();
 app.ApplyMigrations();
 
