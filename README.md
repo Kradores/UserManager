@@ -14,7 +14,7 @@ To check how UI works and see all its functionalities, use URL:
 http://localhost:3000
 ```
 
-But if you want to check the UI only, you can access it by URL:
+But if you want to check the API only, you can access it by URL:
 ```
 http://localhost:5000
 ```
