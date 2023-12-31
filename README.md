@@ -19,14 +19,20 @@ But if you want to check the API only, you can access it by URL:
 http://localhost:5000
 ```
 
-## Build
-App consists of 3 parts:
-- UI: Node.js and React
-- API: C# and ASP.NET Core
-- Database: PostgreSQL
-
 ## Functionality
 There is only 1 page, that has a table, which shows all users and their credits. It was created with pagination in mind.
 
 It is possible to add a user, by clicking Create User button. By using buttons from action column you can edit or delete a user.
 Also you can double click directly on the field that you wish to edit and make the changes, after changes are done you should use Save button, that appears in action column on edit.
+
+## Build
+App consists of 3 parts:
+- **UI**: Node.js and React
+- **API**: C# and ASP.NET Core
+- **Database**: PostgreSQL
+
+## Project Structure
+Project is separated in 3 parts:
+- **UserManager.API**: represents the API, it was made with **Minimal API** arhitecture in mind, as it is a very small and simple APP.
+- **UserManager.Infrastructure**: represents the Database manager, it uses EF Core ORM. Here is all the logic that manipulates PostgreSQL database.
+- **usermanager.ui**: represents the UI, which uses React. It is made in a very simplistic way, with one page and 2 components.
